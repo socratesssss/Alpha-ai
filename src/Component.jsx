@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { section } from "framer-motion/client";
+// import { section } from "framer-motion/client";
 
 const AIChatbot = () => {
   const [inputText, setInputText] = useState("");
