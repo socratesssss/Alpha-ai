@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { section } from "framer-motion/client";
 
 const AIChatbot = () => {
   const [inputText, setInputText] = useState("");
@@ -49,16 +48,15 @@ const AIChatbot = () => {
   };
 
   return (
-    <section className="md:bg-gray-300 w-full">
-      <div className="w-[100vw] md:w-xl mx-auto md:pb-4 rounded-2xl shadow-lg bg-white flex hide-scrollbar flex-col h-[99vh]">
-       
-        <div className="flex-1 px-2 mb-2 overflow-y-auto hide-scrollbar space-y-2  md:px-2">
-        <div className=" items-center flex-col mt-20 gap-5 flex w-full   h-[20vh]">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Hello, I am AlphaMind.
-          </h1>
-          <p className="text-gray-500">Ask me somethink</p>
-        </div>
+    <section className="md:bg-white w-full h-[100svh]">
+      <div className="w-full md:w-xl mx-auto flex flex-cols justify-center  items-center md:pb-4  bg-white  h-full">
+        <div className="flex-1 px-2 mb-20 overflow-y-auto hide-scrollbar space-y-2  md:px-2">
+          <div className="items-center flex-col mt-20 gap-5 flex w-full h-[20vh]">
+            <h1 className="text-3xl font-bold text-gray-800">
+              Hello, I am AlphaMind.
+            </h1>
+            <p className="text-gray-500">Ask me something</p>
+          </div>
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -67,10 +65,10 @@ const AIChatbot = () => {
               }`}
             >
               <div
-                className={`px-4  py-2 rounded-2xl  break-words max-w-[70%] text-sm ${
+                className={`px-4 py-2 rounded-2xl break-words max-w-[80%] text-sm ${
                   msg.sender === "user"
-                    ? "bg-blue-600 text-white "
-                    : "bg-gray-200 text-blackt"
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-200 text-black"
                 }`}
               >
                 {msg.text}
@@ -84,24 +82,27 @@ const AIChatbot = () => {
           )}
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex  px-2  justify-center items-center gap-2"
-        >
-          <input
-            type="text"
-            value={inputText}
-            onChange={handleInputChange}
-            placeholder="Ask me anything..."
-            className="flex-1 md:px-4 py-2 border rounded-full focus:outline-none focus:ring focus:border-blue-500"
-          />
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+        {/* Fixed form at the bottom */}
+        <div className="flex fixed bottom-0 justify-center   w-full md:w-xl  bg-white  items-center">
+          <form
+            onSubmit={handleSubmit}
+            className="  gap-2 px-4 py-3 flex justify-between items-center shadow-lg"
           >
-            Send
-          </button>
-        </form>
+            <input
+              type="text"
+              value={inputText}
+              onChange={handleInputChange}
+              placeholder="Ask me anything..."
+              className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring focus:border-blue-500"
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+            >
+              Send
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );
