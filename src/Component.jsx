@@ -49,8 +49,8 @@ const AIChatbot = () => {
   };
 
   return (
-    <section className="md:bg-gray-300 w-full">
-      <div className="w-[100vw] md:w-xl mx-auto md:pb-4 rounded-2xl shadow-lg bg-white flex hide-scrollbar flex-col h-[100svh] md:h-[99vh]">
+    <section className="md:bg-gray-500 h-svh w-full">
+      <div className="w-[100vw] md:w-xl mx-auto md:pb-4 rounded-2xl shadow-lg overflow-hidden bg-white flex hide-scrollbar flex-col h-[100svh] md:h-[99vh]">
 
         <div className="flex-1 px-2 mb-2 overflow-y-auto hide-scrollbar space-y-2  md:px-2">
         <div className=" items-center flex-col mt-20 gap-5 flex w-full   h-[20vh]">
@@ -86,14 +86,14 @@ const AIChatbot = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="flex  px-2  justify-center items-center gap-2"
+          className="flex  px-2  justify-center mb-2 items-center gap-2"
         >
           <input
             type="text"
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Ask me anything..."
-            className="flex-1 md:px-4 py-2 border rounded-full focus:outline-none focus:ring focus:border-blue-500"
+            placeholder=' Ask me anything...'
+            className="flex-1 md:px-4 py-2 border px-2 rounded-full focus:outline-none focus:ring focus:border-blue-500"
           />
           <button
             type="submit"
